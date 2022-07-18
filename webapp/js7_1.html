@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0718 js7에서 받는애 js7과 함께</title>
+<script>
+
+ var url= window.location.search;
+ var sp=url.split("&eee=");
+ var pfrom=sp[1];
+ var sp2=sp[0].split("?ddd=");
+ console.log(sp2);
+ var pname=sp2[1];
+	
+</script>
+
+
+</head>
+<body>
+	이름:<span id="username"></span>
+	<br>
+	국적:<span id="userfrom"></span>
+</body>
+
+<script>
+
+//document.getElementById("mid").append("hong"); 도 됨 
+document.getElementById("username").innerText=pname;
+document.getElementById("userfrom").innerText=pfrom;
+</script>
+
+
+</html>

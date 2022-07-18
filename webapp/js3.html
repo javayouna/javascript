@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0718 random 함수</title>
+<script>
+
+	var a=Math.random()*1;
+	//console.log(a);
+	var b=Math.ceil(Math.random()*1); //ceil 올림 0.1도1 0.5도1
+	//console.log(b);
+	var c=Math.floor(Math.random()*1); //floor 내림  0.1도 0 0.9도 0
+	//console.log(c);
+	var d=Math.round(Math.random()*1); //round 반올림 0.1이면 0 0.5면 1
+	//console.log(d);
+	
+	
+	/* 응용문제 1~20부터 숫자있습니다.
+	해당 숫자를 총 5번 자동으로 찍게하세요
+	*/
+	
+	
+	for(var i=1; i<6; i++){
+		//var rd=Math.round(Math.random()*20+1);
+		//var r=Math.ceil(Math.random()*20);
+		//console.log(rd);
+		//console.log(r);
+	}
+	
+	
+	function pd() {
+		var total="";
+		var w=0;
+		var rr;
+		while(w<5){
+		rr=Math.floor(Math.random()*10); //0부터9까지
+		total+=rr;
+		w++;
+		}
+		fr.product_code.value=total;
+		
+	}
+</script>
+
+
+
+</head>
+<body>
+<form id="fr" name="fr">
+<input type="text" name="product_code" readonly maxlength="5">
+<input type="button" value="상품코드생성" onclick="pd()">
+</form>
+
+</body>
+</html>
