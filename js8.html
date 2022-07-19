@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0719 javascript 5일차 All checkbox기능 삼항연산식</title>
+
+<script>
+
+	function abc() {
+
+
+	//var me = document.getElementById("all").checked;
+	var me = document.getElementById("all");
+		var useck;
+		//console.log(me.checked);
+		/* 조건문형태
+		if (me.checked == true) {useck=true;}
+		else (){useck=false;}
+		 */
+		//삼항연산식
+		me == true ? (useck = true) : (useck = false);
+
+		/* [id로하는 법] -뒤에다 카운팅
+			var w = 1;
+			while (w <= 5) //하위 오브젝트값을 모두 true, false로 적용
+				//document.getElementById("ct" + w).checked = useck; //
+		 */
+		/*[name으로 하는 법] -배열 형태*/		
+		
+		var w = 0;
+		while (w <= 4) {
+			//frm.ct[w].checked = useck; //node는 0부터시작해서 시작이 0이어야함 
+			w++;
+		}
+		
+		/*부록*/
+		//var ea=frm.ct.length; //name으로 가져옴 
+		//console.log(ea);
+		//name이 다 다를경우(우선순위 그룹으로 빈태그를 묶어야함)
+		//childNodes:해당 부모 태그 기준으로 하위태그를 말함
+		/*단, text 코드상 enter를 적용 or 실제 문자가 적용되어 있을 경우*/
+		//var node = document.getElementById("cts").childNodes;
+		//*중요 childNodes는 하위태그에 <br>이 있으면 추가작업 범위가 커져서 사용하지 않음
+		//*적용예시 <li><input type="checkbox" name-"ck1 id="ck1">no1<li>
+		
+	var node = document.getElementById("cts").children;
+		console.log(node.length);
+		var ww = 0;
+		var ea2 = 0;
+		while (ww < node.length) {
+			/*
+					if(node[ww].nodeName=="INPUT"){
+						ea2++;
+					}
+			 */
+			w++;
+		}
+		consolo.log(ea2);
+	}
+</script>
+</head>
+<body>
+
+<form name="frm" id="frm">
+
+<label><input type="checkbox" name="all" id="all" onclick="abc()">전체선택</label><br>
+<span id="cts">
+<input type="checkbox" name="ct" id="ct1">no1<br> <!-- id 이름은 중복안됨 -->
+<input type="checkbox" name="ct" id="ct2">no2<br>
+<input type="checkbox" name="ct" id="ct3">no3<br>
+<input type="checkbox" name="ct" id="ct4">no4<br>
+<input type="checkbox" name="ct" id="ct5">no5<br>
+</span>
+</form>
+</body>
+</html>

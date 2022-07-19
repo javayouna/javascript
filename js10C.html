@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="http://192.168.100.208:8080/js/js10A.html?v=1"></script>
+<script src="http://192.168.100.206:8080/js/js10B.html?v=1"></script>
+<title>총 확인파트 Cpart</title>
+<script>
+
+var count= [
+	"계좌를 선택하세요",
+	"하나은행 608-12-553432 예금주명 : 홍길동",
+	"SC은행 323-20-227025 예금주명 : 홍길동",
+	"국민은행 64-2342-1134568 예금주명 : 홍길동"
+];
+var url=window.location.search;
+
+var sp=sp.split("?ddd=");
+console.log(sp2);
+	
+function name() {
+
+}
+</script>
+
+<style>
+.button {
+	 width : 100px;
+            height : 30px;
+            background-color: black;
+            color : white;
+            font-size : 14px;
+            font-weight: bold;
+         }
+</style>
+
+</head>
+
+<body>
+결제하실 금액: 원<br>
+최종 결제하실 결제방법을 선택해 주시길 바랍니다.<br>
+<br>
+<form name="frm" id="frm">
+<input type="radio" name="shop" id="shop">무통장입금
+<input type="radio" name="shop" id="shop">가상계좌
+<input type="radio" name="shop" id="shop">계좌이체
+<input type="radio" name="shop" id="shop" checked>신용카드
+</form>
+<input type="button" name="button" class="button" id="button" value="결제완료" onclick="btn()">
+
+<form name="tonzang" name="tonzang">
+<select class="eun"> </select>
+
+</form>
+
+
+
+</body>
+<script>
+
+var eun;
+var ea=count.length;
+var k=0;
+var html, text;
+do{
+	html=document.createElement("option");
+	text=document.createTextNode(count[k]);
+	html.append(text);
+	document.getElementById("eun").append(html);
+	k++;
+}while(k<ea);
+
+document.getElementById("cost").innerText=ccost;
+</script>
+</html>
