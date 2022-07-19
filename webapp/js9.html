@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0719 응용문제 전체약관에 동의함</title>
+<script>
+
+
+function abc() {
+	var cc=document.getElementById("all");
+	var w=0;
+	var useck;
+	var useck2;
+	if(cc.checked==true){
+		useck=true;
+	}
+	
+	else{
+		useck2=true;
+	
+	}
+	while(w<=3){
+		frm.agree[w].checked=useck;
+		frm.disagree[w].checked=useck2;
+		w++;
+	}	
+}
+
+</script>
+
+</head>
+<body>
+<!-- 라디오랑 체크박스는 id가 중복되도됨 -->
+[해당 광고 서비스를 선택하세요]<br>
+<form name="frm" id="frm">
+SMS 수신여부:
+<input type="radio" name="pop" id="agree">동의함
+<input type="radio" name="pop" id="disagree" checked="checked">동의안함
+<br>
+이메일 수신여부:
+<input type="radio" name="pop2" id="agree">동의함
+<input type="radio" name="pop2" id="disagree" checked="checked">동의안함
+<br>
+이벤트 알림 수신여부:
+<input type="radio" name="pop3" id="agree">동의함
+<input type="radio" name="pop3" id="disagree" checked="checked">동의안함
+<br>
+푸시알림 수신여부:
+<input type="radio" name="pop4" id="agree">동의함
+<input type="radio" name="pop4" id="disagree" checked="checked">동의안함
+<br>
+
+<label><input type="checkbox" name="all" id="all" onclick="abc()">전체 서비스에 동의함</label><br>
+</form>
+</body>
+</html>
