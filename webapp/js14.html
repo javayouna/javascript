@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://192.168.100.208:8080/js/js13.js?v=1"></script>
+<script src="http://192.168.100.206:8080/js/js14_js.js?v=1"></script>
+<title>0720 javascript 6일차 배열+for each, for in</title>
+
+<style>
+.lists, .lists2{
+width: 400px;
+height: 30px;
+font-size:12px;
+}
+.lists>label,.lists2>label{
+width:195px;
+height: inherit;
+border: 1px solid black;
+text-align:center;
+line-height: 30px;
+display:inline-block;
+
+/*display:block; float:left*/
+
+box-sizing: border-box;
+}
+.lists2{
+height: auto;
+}
+
+</style>
+
+</head>
+<body>
+<div class="lists">
+<label>아이디</label>
+<label>고객명</label>
+</div>
+<div class="lists2" id="lists2"></div>
+<input type="button" value="전체회원보기" onclick="abc();">
+<input type="button" value="전체회원보기(forin)" onclick="bbb();">
+</body>
+<script>
+
+
+var data=[
+	
+	["hong","홍길동"],
+	["lee","이순신"],
+	["park","박찬호"],
+	["kim","김유신"]
+	
+];
+
+function abc() { // for each
+	var obj=document.getElementById("lists2");
+	var label1, label2;
+	var text1, text2;
+	data.forEach(function(a,b,c) {
+		label1=document.createElement("label");
+		label2=document.createElement("label");
+		text1=document.createTextNode(a[0]);
+		text2=document.createTextNode(a[1]);
+		
+		label1.append(text1);
+		label2.append(text2);
+		
+		/*
+		obj.append(label1);
+		obj.append(label2);
+		appendchild는 연속으로 변수값부르지 못합니다.*/
+		
+		obj.append(label1,label2);
+	});
+		
+	}
+
+
+function bbb() { //for in
+	var obj2=document.getElementById("lists2");
+	var label1, label2;
+	var text1, text2;
+
+	
+	for(var aa in data){
+		label1=document.createElement("label");
+		label2=document.createElement("label");
+		text1=document.createTextNode(data[aa][0]);
+		text2=document.createTextNode(data[aa][1]);
+		
+		label1.append(text1);
+		label2.append(text2);
+		
+		obj2.append(label1,label2);
+
+		
+	}
+	
+}
+
+/* a:각 그룹별 배열 b: 배열 그룹 index번호 c:전체 배열 반복*/
+data.forEach(function(a,b,c) { 
+	//console.log(a[0]); //그룹에 모든 데이터 인덱스 해당하는 값 출력
+	console.log(data[b][1]); // 그룹에서 데이터 인덱스만 출력 
+});
+
+var a
+for(a in data){//for in그룹에 해당되는 배열 인덱스 번호 가져옴 
+	console.log(data[a][0]);
+	
+}
+
+
+
+</script>
+
+
+
+
+</html>

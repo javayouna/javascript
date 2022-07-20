@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://192.168.100.208:8080/js/js13.js?v=1"></script>
+<script src="http://192.168.100.206:8080/js/js14_js.js?v=1"></script>
+<title>0720 javascript 6일차 외부 api js연동+js13와함께</title>
+<script>
+
+
+
+function kakao_call() {
+	if(f.mid.value==""){
+		alert("아이디를 입력하세요");
+	}
+	
+	else{
+		
+	 var result = kakao.login(f.mid.value);
+		console.log(result);
+		
+		 var result = JANGHOHO.map(f.mid.value);
+			console.log(result);	
+		
+	}
+}
+
+
+
+</script>
+
+
+
+</head>
+<body>
+
+<form name="f" id="f">
+<input type="text" name="mid">
+<input type="button" value="로그인" onclick="kakao_call()">
+</form>
+
+
+</body>
+
+</html>

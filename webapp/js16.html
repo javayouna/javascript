@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://192.168.100.208:8080/js/js13.js?v=1"></script>
+<script src="http://192.168.100.206:8080/js/js14_js.js?v=1"></script>
+<title>0720 javascript 6일차 key배열 Object.keys</title>
+
+<script>
+
+
+const m = {
+	    "mid":["hong","lee","kims","yuri","kang","ygs"],
+	    "mname":["홍길동","이순신","김유신","유리왕","강감찬","유관순"],
+	    "mtel":["010-1234-5555","010-0909-0001","010-5252-4242","010-2424-0000","010-1588-1588","010-0815-0815"]
+	};
+		
+	var test = Object.keys(m);
+	//console.log(test);
+		
+		
+
+Object.keys(m).forEach(function(a,b,c){ //Object.keys 무조건 forEach
+	m[a].forEach(function(aa,bb,cc){//해당 배열 변수에서 키 index값을 적용함
+	console.log(aa);	
+	});	
+});
+
+
+//console.log(m["mid"][0]); //'hong'뽑힘
+var s;
+for(s in m){ //키값을 3바퀴
+	Object.keys(m[s]).forEach(function(aa,bb,cc){
+		//각 배열 키값에 맞는 데이터 출력(6번회전)
+		//console.log(m[s][aa]);//모든데이터뽑기
+	});
+	
+};
+
+
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+
+
+</html>

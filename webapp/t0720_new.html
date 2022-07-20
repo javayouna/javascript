@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+
+<style>
+
+
+ul,li{
+
+list-style:none;
+float: left;
+}
+li{
+color:black;
+border: 1px solid black;
+font-size: 12px;
+text-align: center;
+width: 120px;
+height: 20px;
+line-height: 20px;
+}
+
+
+</style>
+
+</head>
+<body>
+	<form name="f" id="f">
+	<ul id="row"></ul>
+	</form>
+</body>
+
+<script>
+
+
+var url = [
+    {"EVENT":"푸드페어","LINK":"https://www.coupang.com/np/campaigns/16160?from=home_C1&traid=home_C1&trcid=11169775"},
+    {"EVENT":"메가뷰티쇼","LINK":"https://pages.coupang.com/p/62484?from=home_C1&traid=home_C1&trcid=6256722548"},
+    {"EVENT":"종근당건강","LINK":"https://pages.coupang.com/f/s7260?from=home_C1&traid=home_C1&trcid=11168322"},
+    {"EVENT":"필립스","LINK":"https://pages.coupang.com/f/s976?from=home_C1&traid=home_C1&trcid=11168328"},
+    {"EVENT":"글로벌 쇼핑데이","LINK":"https://pages.coupang.com/p/63611?from=home_C1&traid=home_C1&trcid=11169777"},
+    {"EVENT":"특가 대방출","LINK":"https://www.coupang.com/np/campaigns/82?from=home_C1&traid=home_C1&trcid=5667822457"}
+];
+
+var li_menu,text_menu,a_tag;
+var w=0;
+while(w<url.length){
+	
+	a_tag=document.createElement("a");
+	li_menu=document.createElement("li")
+	text_menu=document.createTextNode(url[w]["EVENT"])
+	
+	a_tag.append(li_menu);
+	li_menu.append(text_menu);
+	document.getElementById("row").append(a_tag);
+	
+	a_tag.href=url[w]["LINK"];
+	w++;
+	
+}
+
+</script>
+
+</html>
