@@ -15,6 +15,7 @@ list-style:none;
 float: left;
 }
 li{
+color:black;
 border: 1px solid black;
 font-size: 12px;
 text-align: center;
@@ -23,12 +24,14 @@ height: 20px;
 line-height: 20px;
 }
 
+
 </style>
 
 </head>
 <body>
-
-	<div id="row"></div>
+	<form name="f" id="f">
+	<ul id="row"></ul>
+	</form>
 </body>
 
 <script>
@@ -43,37 +46,22 @@ var url = [
     {"EVENT":"특가 대방출","LINK":"https://www.coupang.com/np/campaigns/82?from=home_C1&traid=home_C1&trcid=5667822457"}
 ];
 
-
-
-var aid,aul,ali,aevent,alink;
-	aid=document.getElementById("row");
-	aul=document.createElement("ul");
+var li_menu,text_menu,a_tag;
+var w=0;
+while(w<url.length){
 	
+	a_tag=document.createElement("a");
+	li_menu=document.createElement("li")
+	text_menu=document.createTextNode(url[w]["EVENT"])
 	
-for(var i=0;i<url.length;i++){
-	ali=document.createElement("li");
-	aevent=document.createTextNode(url[i]["EVENT"]);
+	a_tag.append(li_menu);
+	li_menu.append(text_menu);
+	document.getElementById("row").append(a_tag);
 	
-	alink=url[i]["LINK"];
+	a_tag.href=url[w]["LINK"];
+	w++;
 	
-
-	ali.append(aevent);
-	aul.append(ali);
-	aid.append(aul);
-	
-	ali.onclick="click()"
-	
-	
-	};
-	function click(){
-		var m =document.getElementById("url");
-		
-		
-		//location.href=alink;
-
-}	
-
-
+}
 
 </script>
 

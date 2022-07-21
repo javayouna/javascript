@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0721 javascript 7일차 응용문제 </title>
+<script src="http://192.168.100.77:8080/js/product.js?v=0001"></script>
+<style>
+
+body{
+margin:0px;
+padding:0px;
+}
+ui,li{
+list-style:none;
+};
+
+
+ul{
+width: 160px;
+height: 200px;
+border:1px solid black;
+}
+
+</style>
+<body>
+
+
+<form name= "f" id="f">
+
+<ui id="uiid">
+<li></li>
+<li></li>
+<li></li>
+</ui>
+</form>
+</body>
+
+
+<script>
+//배열 키 값 img,money,pd
+//n3.toLocaleString() 자리에 , 찍기 
+var b=document.getElementById("uiid");
+var vli, vimg, vcost;
+for(var f in product){
+	vli=document.createElement("li");
+	Object.keys(product).forEach(function(aa,bb,cc){
+	
+	console.log(product["money"][aa])
+	//console.log(product[f]["img"])
+	//console.log(product);
+
+	//console.log(product[1]["img"][0]);
+	//b.innerHTML+=
+		
+	//	"<li><img src='     '></li>
+	vimg=document.createElement("img");
+	vcost=document.createElement("text");
+	
+	//text= document.createTextNode("배열 물건이름");
+	vimg.src=product[f]["img"];	
+	vcost.append
+	});
+};
+
+</script>
+<body>
+
+</body>
+</head>
+<script>
+
+</script>
+</html>

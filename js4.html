@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0718 HTML 코드 inner 생성, append(익스플로어x) / appendChild(익스플로어ok)</title>
+<script>
+
+var a=0;
+//innerHTML:html 태그 및 문자생성 할 때 사용 
+//innerText:문자만 생성
+
+//inner는 +=를 사용하지 않을 경우 기존 태그를 모두 삭제함!
+
+function abc(){
+var b = document.getElementById("box");
+if(a<3){
+b.innerHTML += "<input type='text' id='mid' name='mid'>"; //태그로 바꾸기, 첨부파일, 옵션선택 등 
+}a++;
+/* inner 는 기존것이 삭제되서 +=해줘야함 */
+//b.innerText="홍길동";
+//b.innerText="<input type='text' id='mid' name='mid'>"; //문자화
+//b.innerHTML="홍길동";
+}
+
+/* node 형태로 생성 (append)*/
+function add() {
+	var k = document.getElementById("box2");
+	/*createElement 해당 함수 생성하는 함수*/
+	var obj =document.createElement("span"); //열고 닫음이 한번에 됨 
+	/*document.createTextNode:문자만 생성할 때 사용*/
+	var text = document.createTextNode("연습");
+	
+	/* append: 노드를 추가하는 함수 +createElemnet와 짝궁
+		기존태그가 있을 경우 새로운 대그는 기존 태그 밑에 생성*/
+	obj.append(text);
+	k.append(obj);
+	
+	/* appendChiled:IE에서 사용하는 속성값:역사속으로,, 
+	obj.appendChild(text);
+	k.appendChild(obj);
+	*/
+}	
+	function add2() {
+		var i = document.getElementById("box3");
+		var q =document.createElement("label");
+		var text = document.createTextNode("텍스트노드");
+		q.append(text); //label태그안에 text를 넣어라
+		i.insertBefore(q, i.firstChild); //insertBefore / lastchild(해당태그안에서 뒤에뜸)
+		//insertBefore:원하는 위치 조정해서 생성하는 함수
+		//firstchild:태그 가장 앞에서
+		//lastchild:태그 가장 뒤에서
+	}
+
+
+</script>
+</head>
+<body>
+<div id="box">
+<input type="button" value="생성" onclick="abc()">
+ </div>
+ <div id="box2">
+ <input type="button" value="생성2" onclick="add()">
+  </div>
+  
+  <div id="box3">
+  <input type="button" value="생성3" onclick="add2()">
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0720 javascript 6일차 복합함수,메소드함수,메소드 리턴함수</title>
+<script>
+
+function aaa(){
+	//복합함수는 최소 한개는 return 사용해야함
+	//최소 한개 의외에 함수(들)은 함수호출 형태 ex j()
+	var a="홍길동";
+	var b="이순신";
+	var z=function(){
+		console.log(a);
+	}
+	
+	
+	var j=function(){
+		console.log(b);
+	
+	}
+	z();
+	return j; //return은 한번밖에 못 쓰고 맨 아래에 있어야함
+	
+}
+	function bbb(){//java class
+		this.a1=function(){ //java method1
+			console.log("test1");
+		}
+		this.a2=function(){//java method2
+			console.log("test2");
+		}
+	}
+
+var h=new bbb(); //java class복사 
+
+function kkk(){
+	
+	this.load=function(v){ //java setter
+		var j =this.success(v);
+		console.log(j);
+		
+	}
+	this.success=function(data){ //java getter
+		var h = data*10;
+		return h;
+	}
+	this.data=function(){
+		var array =["1","2","3"];
+	}
+}
+var zzz = new kkk(); //선언
+
+
+</script>
+
+</head>
+<body>
+<!-- aaa()()복합함수 -->
+<input type="button" value="복합함수" onclick="aaa()()">
+<input type="button" value="메소드함수1" onclick="h.a1()">
+<input type="button" value="메소드함수2" onclick="h.a2()">
+<input type="button" value="메소드함수(return)" onclick ="zzz.load(5)">
+
+
+</body>
+
+</html>

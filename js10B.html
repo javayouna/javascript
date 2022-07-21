@@ -3,23 +3,24 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
 <script src="http://192.168.100.208:8080/js/js10A.html?v=1"></script>
 <script src="http://192.168.100.206:8080/js/js10B.html?v=1"></script>
-<title>ÃÑ °áÁ¦±İ¾× È®ÀÎ ÆÄÆ®</title>
+<title>ì´ ê²°ì œê¸ˆì•¡ í™•ì¸ íŒŒíŠ¸</title>
 </head>
 <body>
 
 
-<p>¼±ÅÃÇÑ »óÇ°Àº:<span id="product_nm"></span></p>
-<p>°áÁ¦ÇÏ½Ç ±İ¾×Àº:<span id="product_total"></span></p>
+<p>ì„ íƒí•œ ìƒí’ˆì€:<span id="product_nm"></span></p>
+<p>ê²°ì œí•˜ì‹¤ ê¸ˆì•¡ì€:<span id="product_total"></span></p>
 <br>
-<input type="button" value="°áÁ¦ÇÏ±â" onclick="post_pay()">
+<input type="button" value="ê²°ì œí•˜ê¸°" onclick="post_pay()">
 
 </body>
 
 <script>
 var data=[
-	["»ç°ú","µş±â","¹Ù³ª³ª","Å°À§","ÆÄÀÎ¾ÖÇÃ","¼ö¹Ú","Âü¿Ü"],
+	["ì‚¬ê³¼","ë”¸ê¸°","ë°”ë‚˜ë‚˜","í‚¤ìœ„","íŒŒì¸ì• í”Œ","ìˆ˜ë°•","ì°¸ì™¸"],
 	[1800,5500,4000,6000,12000,23000,8000],
 ];
 
@@ -27,7 +28,7 @@ var url= window.location.search;
 var array =url.split("&fr=");
 var ea=url.split("&fr=").length;
 var w=0;
-var product_list=""; //»ç¿ëÀÚ°¡ ¼±ÅÃÇÑ »óÇ° ÀüÃ¼ ¸®½ºÆ® Ãâ·Â º¯¼ö 
+var product_list=""; //ì‚¬ìš©ìê°€ ì„ íƒí•œ ìƒí’ˆ ì „ì²´ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ ë³€ìˆ˜ 
 var money=0;
 
 while(w<ea){
@@ -43,7 +44,7 @@ else{
 	w++;
 }	
 document.getElementById("product_nm").append(product_list);
-document.getElementById("product_total").append(money+"¿ø");
+document.getElementById("product_total").append(money+"ì›");
 
 function post_pay() {
 	location.href='./js10CC.html?total='+money;
@@ -53,4 +54,3 @@ function post_pay() {
 
 
 </html>
-

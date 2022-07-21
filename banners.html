@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://192.168.100.208:8080/js/js13.js?v=1"></script>
+<script src="http://192.168.100.206:8080/js/js14_js.js?v=1"></script>
+<title>javascript 7일차 배열 및 Object 출력  </title>
+
+<script src="./banners.js"></script> <!-- banners: av이미지, 링크 -->
+<style>
+.ulcss{
+list-style: none;
+margin:0;
+padding:0;
+width:240px;
+height: auto;
+}
+
+.ulcss>li{
+width: 80px;
+height: 35px;
+float: left;
+overflow: hidden;
+}
+.ulcss>li>a>img{
+width:80px;
+object-fit:cover;
+}
+</style>
+
+</head>
+<body>
+<ul id="banner" class="ulcss"></ul>
+<!--  
+<li><a href=""><img src="" title=""></a></li>
+-->
+</body>
+
+<script>
+//console.log(banners);
+//console.log(banners[0]["p_img"]);
+var html = document.getElementById("banner");
+var html_li, html_a, html_img;
+
+banners.forEach(function(aa,bb,cc){ //aa:배열 bb:인덱스 //6번 돌아감
+//console.log(cc);	
+//console.log(banners[bb]);
+//console.log(Object.keys(banners[bb])); 키 값 출력
+//li,a,img
+html_li=document.createElement("li"); //createElement 마크업 태그쓸 때 주의해야함 여/닫 잘 확인
+html_a=document.createElement("a");
+html_img=document.createElement("img");
+
+Object.keys(banners[bb]).forEach(function(a1,a2,a3){ //3번 돌아감
+	//a1:key, a2: keyindex 
+	//href, src, title
+	//console.log(banners[bb][a1]);
+	
+	switch(a1){
+	case "p_title":
+		html_img.title=banners[bb][a1];
+		break;
+	case "p_img":
+		html_img.src=banners[bb][a1];
+	break;	
+	case "p_link":
+		html_a.href=banners[bb][a1];
+		break;
+	}
+
+});
+
+html_a.append(html_img);
+html_li.append(html_a);
+html.append(html_li);
+
+});
+
+
+
+
+</script>
+
+
+
+</html>

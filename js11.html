@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0720 javascript 6일차 node-1차 (attribute)숙제 보강</title>
+
+<script>
+var data=["m1","m2","m3","m4","m5","m6"];
+function abc(b) {
+console.log(data[b]);
+}
+
+</script>
+
+
+</head>
+<body>
+
+<ul id="menus">
+<li menu="0">메뉴1</li>
+<li menu="1">메뉴2</li>
+<li menu="2">메뉴3</li>
+<li menu="3">메뉴4</li>
+<li menu="4">메뉴5</li>
+</ul>
+
+
+<ul id="menus2">
+<li onclick="abc(0)">메뉴1</li>
+<li onclick="abc(1)">메뉴2</li>
+<li onclick="abc(2)">메뉴3</li>
+<li onclick="abc(3)">메뉴4</li>
+<li onclick="abc(4)">메뉴5</li> 
+</ul>
+
+
+</body>
+<script>
+
+
+
+	var m = document.getElementById("menus");
+	//console.log(m.children[0]); //첫번 째 li만 나옴
+	var ea=m.children.length;
+	var w=0;
+	while(w<ea){
+		
+	/*반복문 function은 안되지만 핸들링 함수형태 사용하면 반복문안에 사용할 수 있음 
+	단, 그 외에 반복문 변수로 배열, 번호등 적용하지는 못함*/
+	m.children[w].onclick=function(aa){ //funcion안에 funtion넣어서 반복문 가능 
+		var node=this.getAttribute("menu");
+		gopage();	
+		//jquery attr, JAVA attributes 
+		//javascript, 
+		//function(dd)이렇게 넣으면 반복문 돌아가는 w는 출력할 수 없음 
+		//alert("test");
+		
+	}
+	w++;
+	}	
+	function gopage(no) {
+		console.log(data[no]);
+	}
+
+</script>
+</html>

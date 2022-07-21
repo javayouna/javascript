@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0718 파라미터 전달 js7_1과 함께(Form, location)</title>
+
+
+<script>
+	function abc() {
+		frm.submit();
+	}
+	//사용자가 입력한 데이터를 모두 변수화->locatnion에 적용
+	function bbb() {
+		var data1 = frm2.kkk.value;
+		var data2 = frm2.zzz.value;
+	//첫번째 데이터는 무조건 ?로 시작함, 그 외는 모두 &fh tkdyd
+		location.href = './js7_1.html?aaa=' + data1 + '&bbb=' + data2;
+	}
+	//method와 action을 자바스크립트에서 직접핸들링 
+	function ccc() {
+		frm3.method = "get";
+		frm3.action = "./js7_1.html";
+		frm3.submit();
+
+	}
+</script>
+
+</head>
+<body>
+	<!-- form 방식 -->
+	<form name="frm" id="frm" method="get" action="./js7_1.html">
+		<input type="text" name="aaa">
+		<!-- 앞사람: 내가 aaa로 던질게 뒷사람:응 -->
+		<input type="text" name="bbb">
+		<!-- 2개 던지기 -->
+		<input type="button" value="전송" onclick="abc();">
+	</form>
+
+	<!-- location으로 파라미터 전송 -->
+	<form name="frm2" id="frm2">
+		<input type="text" name="kkk"> 
+		<input type="text" name="zzz">
+		<input type="button" value="전송" onclick="bbb()">
+	</form>
+
+	<!-- 복합방식 파라미터 전송 실무자가쓰는?-->
+	<form name="frm3" id="frm3">
+		<input type="text" name="ddd"> 
+		<input type="text" name="eee">
+		<input type="button" value="전송" onclick="ccc()">
+	</form>
+
+
+
+</body>
+</html>

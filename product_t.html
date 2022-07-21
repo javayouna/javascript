@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0721 javascript 7일차 상품리스트 출력(응용) </title>
+<script src="http://192.168.100.77:8080/js/product.js?v=0001"></script>
+<style>
+
+      .pdlist{
+         width: 1000px;
+         height: 600px;
+         border : 1px solid black;
+         box-sizing: border-box;
+         margin : 0 auto;
+      }
+      
+      .pdlist > ul {
+         list-style: none;
+         margin: 0;
+         width: inherit;
+         height: auto;
+         padding : 20px;
+      }
+      
+      .pdlist > ul > li {
+/*          background-color: #ccc; */
+         border : 1px solid #ccc;
+         float : left;
+         width: 200px;
+         height: 290px;
+         margin : 20px;
+      }
+      
+      .olcss {
+         list-style: none;
+         margin: 0;
+         padding: 0;
+         width: inherit;
+         height: 290px;
+      }
+      .olcss > li{
+         font-size: 13px;
+         font-weight: bold;
+         width: inherit;   
+      }
+      
+      .olcss > li:nth-of-type(1){
+         height: 200px;
+         text-align: center;
+      }
+      
+      .olcss > li:nth-of-type(2){
+         height: 60px;
+         text-align: center;
+      }
+      
+      .olcss > li:nth-of-type(3){
+         height: 30px;
+         text-align: center;
+         line-height: 30px;
+      }
+   </style>
+
+
+</head>
+<body>
+<div class="pdlist">
+<ul id="ulproduct">
+<!--  
+<li>
+	<ol class="olcss">
+	<li><img src="./product/product3.jpg"><li>
+	<li>앱솔루트<li>
+	<li>45,000<li>
+	</ol>
+</li>
+
+-->
+</ul>
+
+
+</div>
+
+</body>
+<script>
+
+ var html=document.getElementById("ulproduct");
+ var p,pp;
+ var lihtml,ol,li,img;
+ for(p in product["pd"]){ //상품개수 4 데이터값 
+	
+	 lihtml=document.createElement("li");
+	 ol=document.createElement("ol");
+	 ol.className="olcss";
+	 for(pp in product){ //키개수  3 
+		li=document.createElement("li");
+		var field;
+		if(pp=="pd"){
+			field="img";
+		img=document.createElement("img");
+		img.src=product[field][p];
+		li.append(img);	
+		}
+		else if(pp=="img"){
+			field="pd";
+			li.innerHTML=product[field][p];
+
+		}
+		else if(pp=="money"){
+			field=pp;
+			li.append(Number(product[field][p]).toLocaleString());	 //Number넣어야함
+		}	 
+		
+	 ol.append(li);
+	 }
+	 
+	 lihtml.append(ol);
+	 html.append(lihtml);
+	 
+	 
+	 
+ }
+ 
+
+</script>
+</html>

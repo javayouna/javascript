@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0721 javascript 7일차 상품리스트 출력(응용) </title>
+<script src="http://192.168.100.77:8080/js/product_list.js?v=0001"></script>
+</head>
+<style>
+
+
+</style>
+
+<body>
+<table border="1" cellpadding="0" cellspacing="0">
+<thead>
+<tr>
+<th><input type="checkbox" id="allcheck"></th>
+<th>상품명</th>
+<th>가격</th>
+</tr>
+</thead>
+<tbody id="tbody">
+
+
+</tbody>
+</table>
+</body>
+
+<script>
+
+//pd_name key이름
+//console.log(Object.keys(product));
+var vck,vtr,vtd,vva; //체크박스, tr, th, value 
+var html=document.getElementById("tbody");
+for(var f in product){ //키개수
+  for(var ff in product[f]){//상품개수
+	 //console.log(product["pd_name"][ff]);
+	 vtr=document.createElement("tr");
+	 vck=document.createElement("input");
+  	 vck.type="checkbox";
+	 vva=document.createElement("value");
+
+		 
+  	 
+  	 for(var fff in product[f][ff]){
+	 vtd=document.createElement("td");
+  		//console.log(product[f][ff][0]); 가방 
+  		//console.log(product[f][ff][1]); 가격
+  		//console.log(product[f][ff][2]); value;
+  	
+  		if(fff==0){
+			vtd.append(vck);
+  		}	
+  		else if(fff==1){
+  			vtd.append(product[f][ff][0]);
+  			
+  		}
+  		else if(fff==2){
+  			vtd.append(Number(product[f][ff][1]).toLocaleString());
+  		}
+	 vtr.append(vtd);
+  	 }
+ 
+	 tbody.append(vtr);
+	 
+	 
+  };
+  };
+
+
+
+</script>
+
+
+
+
+
+</html>

@@ -4,24 +4,31 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>0718 javascript 4일차</title>
+<title>0718 javascript 4일차 submit + return</title>
 <script>
 
-function test(){
-	alert("Test");
+function abc(){ //return 함수
+	if(frm.search.value==""){
+	alert("검색할 단어를 입력하세요.");
+	return false;//submit속성에만 return을 무조건 사용 
+	}
+	else{
+		//return true;
+		//return
+		frm.submit(); //셋다 같은 말
+
+	}
 }
 </script>
-
-
-
-
-
 </head>
 <body>
+<!-- onsubmit은 무조건 form태그에만 사용 -->
+<form name="frm" id="frm" method="post" action="http://nate.com" onsubmit="return abc();">
+<!-- submit은 입력하지 않으면 넘어가지 않아야할 때는 return  false/true 로 조건 주기 버튼은 필요 x -->
+<!-- form없으면 submit작동 안 함/ submit은 무조건** onsubmit을 form 써야함 -->
+<input type="text" id="search">
+<input type="submit" value="검색">
+</form> 
 
-
-
-
-<input type="button" value="버튼" onclick="test();">
 </body>
 </html>

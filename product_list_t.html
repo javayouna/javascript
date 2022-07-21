@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0721 javascript 7일차 상품리스트 출력 checkboc (응용) </title>
+<script src="http://192.168.100.77:8080/js/product_list.js?v=0001"></script>
+
+<script>
+function allcheck2(){
+	
+	if(f.allcheck.checked==true){
+	var w=0;
+	while(w<ea){
+		
+		f.pd[w].checked=true;
+		
+		w++;
+	}
+	}
+
+ else{
+	var w=0;
+	while(w<ea){
+		
+		f.pd[w].checked=false;
+		
+		w++;
+	
+}
+
+}
+}
+function method2(){
+	//하나이상 체크 되어야 전송 됨 (숙제)
+	f.submit();
+}
+
+</script>
+
+
+</head>
+<body>
+
+<form name="f" id="f" method="get" action="">
+<table border="1" cellpadding="0" cellspacing="0">
+
+<thead>
+	<tr>
+	<th><input type="checkbox" id="allcheck" onclick="allcheck();"></th>
+	<th>상품명</th>
+	<th>가격</th>
+	</tr>
+</thead>
+<tbody id="list">
+<!-- <tr>
+	<td><input type="checkbox" name="a"></td>
+	<td>상품명</td>
+	<td>가격</td>
+	</tr>
+ -->
+</tbody>
+
+</table>
+
+<input type="button" value="구매하기" onclick="method2();">
+
+</form>
+
+
+</body>
+<script>
+ var html=document.getElementById("list");
+ var ea=product["pd_name"].length; //전체체크 사용 용도
+ var tr,td,input;
+ //console.log(product["pd_name"][2][1]); //키가 있음 
+ Object.keys(product["pd_name"]).forEach(function(aa,bb,cc){
+ //console.log(aa);
+ tr=document.createElement("tr");
+ var f;
+ for(f in product["pd_name"][aa]){
+	td=document.createElement("td");
+	
+	 var code;
+	 //console.log(f);
+	switch(f){
+	case "0": //상품명
+	code=2;
+	input=document.createElement("input");
+	input.type="checkbox";
+	input.name="pd";
+	input.value=product["pd_name"][aa][code];	
+	td.append(input);
+	break;
+	
+	case "1": //가격
+	code=0;
+	td.append(product["pd_name"][aa][code]);
+	break;
+	
+	case "2": //value;
+	code=1;
+	td.append(Number(product["pd_name"][aa][code]).toLocaleString());
+	break;
+	
+	
+	} 
+	tr.append(td);
+	html.append(tr);
+	console.log(product["pd_name"][aa][code]);
+ }
+ 
+ 
+ });
+
+ 
+ 
+ 
+</script>
+
+
+
+</html>
